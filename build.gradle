@@ -1,0 +1,38 @@
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+javafx {
+    version = "17"
+    modules = [ 'javafx.controls' ]
+}
+
+group = "io.github.fortibbrine"
+version = 1.0
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+}
+
+shadowJar {
+    archiveClassifier.set('')
+}
+
+application {
+    mainClassName = 'io.github.fortibbrine.calculator.main.Main'
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
